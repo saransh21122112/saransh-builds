@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="AI agents, chatbots, Excel automation and dashboards for small businesses. Fixed prices under ₹4,000, delivered in days. Based in Faridabad.">
+<!-- Paste your Google Ads / Google tag code here -->
+<title>Saransh Builds</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow reading column; a wide service grid priced like a rate card; contact block as the closing "terminal" panel */
+:root{
+  --bg:#F1F4F2; --surface:#FFFFFF; --ink:#13201B; --muted:#55645E; --line:#D5DDD9;
+  --accent:#0B7A63; --accent-ink:#FFFFFF; --tag:#E2EEE9; --warn:#9A5B00;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1513; --surface:#16201D; --ink:#E6EEEA; --muted:#97A8A1; --line:#2A3833;
+  --accent:#3CC9A4; --accent-ink:#06120E; --tag:#1C2C27; --warn:#E3A848; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1513; --surface:#16201D; --ink:#E6EEEA; --muted:#97A8A1; --line:#2A3833;
+  --accent:#3CC9A4; --accent-ink:#06120E; --tag:#1C2C27; --warn:#E3A848; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0}
+.wrap{max-width:1040px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+header.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:22px;flex-wrap:wrap}
+.mark{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-.01em}
+.mark span{color:var(--accent)}
+.avail{font-family:var(--mono);font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--tag)}
+
+.hero{padding-block:40px 56px;display:grid;gap:22px;max-width:760px}
+.hero h1{font-size:clamp(36px,6.4vw,64px);font-weight:800;letter-spacing:-.025em}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lede{font-size:19px;color:var(--muted);max-width:60ch}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 15px var(--body);padding:12px 18px;border-radius:8px;border:1px solid var(--accent);text-decoration:none;cursor:pointer}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.creds{display:flex;flex-wrap:wrap;gap:8px 20px;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.creds b{color:var(--ink);font-weight:500}
+
+section{padding-block:48px;border-top:1px solid var(--line)}
+.sec-head{display:grid;gap:8px;margin-bottom:28px;max-width:640px}
+.sec-head h2{font-size:clamp(26px,3.6vw,36px);font-weight:700;letter-spacing:-.015em}
+.sec-head p{color:var(--muted)}
+
+.rates{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
+.rate{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px;display:grid;grid-template-rows:auto auto 1fr auto;gap:12px;min-width:0}
+.rate h3{font-size:21px;font-weight:700}
+.rate .for{font-size:14px;color:var(--muted)}
+.rate ul{margin:0;padding-left:18px;font-size:15px;display:grid;gap:4px}
+.meta{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding-top:14px;border-top:1px dashed var(--line);font-family:var(--mono);font-variant-numeric:tabular-nums}
+.price{font-size:22px;font-weight:500;color:var(--ink)}
+.price small{font-size:12px;color:var(--muted);font-weight:400}
+.eta{font-size:12px;color:var(--muted);background:var(--tag);padding:3px 8px;border-radius:999px;white-space:nowrap}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:24px;counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;display:grid;gap:6px}
+.steps li::before{content:"0" counter(s);font-family:var(--mono);font-size:13px;color:var(--accent)}
+.steps strong{font-family:var(--display);font-size:19px;font-weight:700}
+.steps span{color:var(--muted);font-size:15px}
+
+.jobs{display:grid;gap:0;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+.job{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;padding:16px 20px;border-top:1px solid var(--line)}
+.job:first-child{border-top:0}
+.job .before{color:var(--muted)}
+.job .arrow{font-family:var(--mono);color:var(--accent)}
+.job .after{font-weight:500}
+@media (max-width:620px){.job{grid-template-columns:1fr;gap:4px}.job .arrow{display:none}.job .after::before{content:"→ ";color:var(--accent);font-family:var(--mono)}}
+
+.faq{display:grid;gap:10px;max-width:760px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 18px}
+summary{cursor:pointer;font-weight:600;list-style-position:outside}
+details p{margin-top:8px;color:var(--muted);max-width:65ch}
+
+.contact{background:var(--ink);color:var(--bg);border-radius:14px;padding:32px clamp(20px,4vw,40px);display:grid;gap:22px;margin-bottom:48px}
+.contact h2{font-size:clamp(26px,3.6vw,36px);color:var(--bg)}
+.contact p{color:color-mix(in srgb, var(--bg) 75%, var(--ink))}
+.lines{display:grid;gap:12px}
+.line{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;font-family:var(--mono);font-size:15px;border:1px solid color-mix(in srgb, var(--bg) 25%, var(--ink));border-radius:8px;padding:12px 14px}
+.line .k{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;min-width:84px}
+.line .v{flex:1;min-width:0;overflow-wrap:anywhere;user-select:all}
+.copy{font:500 13px var(--mono);background:var(--accent);color:var(--accent-ink);border:0;border-radius:6px;padding:7px 12px;cursor:pointer}
+.msg{font-family:var(--mono);font-size:14px;line-height:1.55;background:color-mix(in srgb, var(--bg) 8%, var(--ink));border-radius:8px;padding:14px;white-space:pre-wrap;overflow-wrap:anywhere}
+footer{font-family:var(--mono);font-size:12px;color:var(--muted);padding-bottom:32px}
+@media (prefers-reduced-motion:no-preference){.btn,.copy{transition:transform .15s}.btn:hover,.copy:hover{transform:translateY(-1px)}}
+</style>
+<style>body{margin:0}</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header class="top">
+    <div class="mark">saransh<span>.builds</span></div>
+    <div class="avail"><i class="dot"></i>Taking 2 projects this month</div>
+  </header>
+
+  <div class="hero">
+    <p class="eyebrow">AI &amp; automation for small businesses</p>
+    <h1>Stop doing the same boring work <em>every week.</em></h1>
+    <p class="lede">I'm Saransh, an AI Engineer. I build scripts, chatbots and dashboards that take hours of manual work off your plate. Fixed price, agreed upfront, delivered in days.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="#contact">Tell me what you need</a>
+      <a class="btn ghost" href="#services">See prices</a>
+      <a class="btn ghost" href="#agents">AI agents</a>
+    </div>
+    <div class="creds">
+      <span><b>AI Engineer</b> · production ML &amp; LLM systems</span>
+      <span><b>B.E. CSE (AI/ML)</b> · Chandigarh University</span>
+      <span><b>Python</b> · OpenAI/Claude APIs · Pandas · SQL</span>
+      <span><b>Agents</b> · MCP · skills · hooks · LangGraph</span>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="sec-head">
+      <p class="eyebrow">Rate card</p>
+      <h2>What I build, and what it costs</h2>
+      <p>Starting prices for a typical job. You get an exact quote before any work begins, and it doesn't change.</p>
+    </div>
+    <div class="rates">
+      <article class="rate">
+        <h3>Excel &amp; report automation</h3>
+        <p class="for">For shops, CA firms and offices that copy-paste between sheets.</p>
+        <ul><li>Merge, clean and format files in one click</li><li>Auto-generate monthly or GST-ready summaries</li><li>Runs on your own laptop</li></ul>
+        <div class="meta"><span class="price">₹1,999 <small>onwards</small></span><span class="eta">~3 days</span></div>
+      </article>
+      <article class="rate">
+        <h3>Web data extraction</h3>
+        <p class="for">For anyone collecting prices, listings or leads by hand.</p>
+        <ul><li>Pull data from public websites into Excel/CSV</li><li>Scheduled runs if needed</li><li>Clean, de-duplicated output</li></ul>
+        <div class="meta"><span class="price">₹2,499 <small>onwards</small></span><span class="eta">~3 days</span></div>
+      </article>
+      <article class="rate">
+        <h3>AI chatbot on your docs</h3>
+        <p class="for">For coaching centres, clinics and businesses answering the same questions daily.</p>
+        <ul><li>Answers from your FAQs, PDFs and price lists</li><li>Embedded on your website</li><li>Hindi + English</li></ul>
+        <div class="meta"><span class="price">₹3,499 <small>onwards</small></span><span class="eta">~7 days</span></div>
+      </article>
+      <article class="rate">
+        <h3>Sales &amp; business dashboard</h3>
+        <p class="for">For owners who want to see the numbers without opening five files.</p>
+        <ul><li>Sales, stock or expenses at a glance</li><li>Built in Streamlit or Power BI</li><li>Updates from your existing sheets</li></ul>
+        <div class="meta"><span class="price">₹3,499 <small>onwards</small></span><span class="eta">~5 days</span></div>
+      </article>
+      <article class="rate">
+        <h3>1:1 Python &amp; ML mentoring</h3>
+        <p class="for">For students and freshers stuck on a project or preparing for interviews.</p>
+        <ul><li>Live call, screen-share, your code</li><li>ML interview prep and mock questions</li><li>Notes shared after the call</li></ul>
+        <div class="meta"><span class="price">₹499 <small>/ 45 min</small></span><span class="eta">this week</span></div>
+      </article>
+      <article class="rate">
+        <h3>Something else?</h3>
+        <p class="for">If it involves data, Python or AI, describe it and I'll tell you honestly if I can do it.</p>
+        <ul><li>Quote within 24 hours</li><li>No charge for the first conversation</li><li>Bigger projects split into milestones</li></ul>
+        <div class="meta"><span class="price">Custom</span><span class="eta">quoted</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="agents">
+    <div class="sec-head">
+      <p class="eyebrow">AI agents &amp; assistant setup</p>
+      <h2>Make Claude and ChatGPT work your way</h2>
+      <p>For teams and founders who already use AI tools and want them to follow their process, use their data and finish whole tasks on their own.</p>
+    </div>
+    <div class="rates">
+      <article class="rate">
+        <h3>Custom skills &amp; GPTs</h3>
+        <p class="for">For teams that keep re-explaining the same format, SOP or checklist to the AI.</p>
+        <ul><li>Your process packaged as a reusable Claude skill or custom GPT</li><li>Templates, examples and scripts bundled in</li><li>Shared across your whole team</li></ul>
+        <div class="meta"><span class="price">₹2,999 <small>onwards</small></span><span class="eta">~3 days</span></div>
+      </article>
+      <article class="rate">
+        <h3>Plugins &amp; MCP connectors</h3>
+        <p class="for">For businesses that want the AI to read and update their own tools.</p>
+        <ul><li>Custom MCP server for your sheets, CRM or database</li><li>Slash commands for routine jobs</li><li>Read-only or approval-gated actions</li></ul>
+        <div class="meta"><span class="price">₹3,499 <small>onwards</small></span><span class="eta">~7 days</span></div>
+      </article>
+      <article class="rate">
+        <h3>Hooks &amp; coding-agent setup</h3>
+        <p class="for">For dev teams using Claude Code or similar AI coding tools.</p>
+        <ul><li>Hooks that auto-run tests, lint and format</li><li>Block risky commands and secret leaks</li><li>Project memory files and team conventions</li></ul>
+        <div class="meta"><span class="price">₹2,499 <small>onwards</small></span><span class="eta">~3 days</span></div>
+      </article>
+      <article class="rate">
+        <h3>Single-task AI agent</h3>
+        <p class="for">For one multi-step job that eats someone's day.</p>
+        <ul><li>Reads inputs (email, PDFs, forms), decides, acts</li><li>Tool calling with your APIs and files</li><li>Human approval before anything is sent</li></ul>
+        <div class="meta"><span class="price">₹2,999 <small>flat</small></span><span class="eta">~10 days</span></div>
+      </article>
+      <article class="rate">
+        <h3>Multi-agent system</h3>
+        <p class="for">For bigger workflows where research, drafting and checking are separate jobs.</p>
+        <ul><li>Planner, worker and reviewer agents working together</li><li>Built with LangGraph, CrewAI or Claude Agent SDK</li><li>Logs, cost limits and test cases included</li></ul>
+        <div class="meta"><span class="price">₹3,999 <small>flat</small></span><span class="eta">~3 weeks</span></div>
+      </article>
+      <article class="rate">
+        <h3>Learn to build agents</h3>
+        <p class="for">For developers and students who want to build these themselves.</p>
+        <ul><li>Agents, tool calling, MCP, skills and hooks</li><li>Build a working agent together, live</li><li>Code and notes are yours to keep</li></ul>
+        <div class="meta"><span class="price">₹999 <small>/ 90 min</small></span><span class="eta">this week</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <p class="eyebrow">How it works</p>
+      <h2>Four steps, no surprises</h2>
+    </div>
+    <ol class="steps">
+      <li><strong>Message me</strong><span>Describe the task on WhatsApp or email. A screenshot of your sheet helps.</span></li>
+      <li><strong>Get a fixed quote</strong><span>Price and delivery date within 24 hours. You decide, no pressure.</span></li>
+      <li><strong>50% to start</strong><span>Pay half by UPI. I build it and show you progress along the way.</span></li>
+      <li><strong>Pay the rest when happy</strong><span>Two rounds of changes included. Then the balance, and it's yours.</span></li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <p class="eyebrow">Example jobs</p>
+      <h2>The kind of work this replaces</h2>
+      <p>Typical before-and-after for jobs like these.</p>
+    </div>
+    <div class="jobs">
+      <div class="job"><span class="before">Merging 40 client Excel files every month by hand</span><span class="arrow">→</span><span class="after">One script, done in under a minute</span></div>
+      <div class="job"><span class="before">Checking competitor prices on 5 websites daily</span><span class="arrow">→</span><span class="after">A sheet that fills itself every morning</span></div>
+      <div class="job"><span class="before">Answering "fees kitni hai? timing kya hai?" 50 times a day</span><span class="arrow">→</span><span class="after">A chatbot that answers from your brochure</span></div>
+      <div class="job"><span class="before">Guessing which products sold best last quarter</span><span class="arrow">→</span><span class="after">A dashboard you check in ten seconds</span></div>
+      <div class="job"><span class="before">Typing vendor invoices from email into Tally or Excel</span><span class="arrow">→</span><span class="after">An agent that extracts them and asks you to approve</span></div>
+      <div class="job"><span class="before">Researching, writing and checking every client report by hand</span><span class="arrow">→</span><span class="after">Three agents draft it, you do the final read</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <p class="eyebrow">Questions</p>
+      <h2>Before you message</h2>
+    </div>
+    <div class="faq">
+      <details><summary>How do I pay?</summary><p>UPI or bank transfer. 50% before work starts, 50% after you've checked the result and are happy with it.</p></details>
+      <details><summary>Do I need any technical knowledge?</summary><p>No. I set it up, show you how to use it on a short call, and write simple instructions you can follow later.</p></details>
+      <details><summary>Is my business data safe?</summary><p>Your files are used only for your project and deleted once it's delivered. I'm happy to sign a simple NDA if you need one.</p></details>
+      <details><summary>Which AI tools do you work with?</summary><p>Claude (skills, plugins, hooks, MCP, Agent SDK), ChatGPT and the OpenAI API, LangGraph and CrewAI. If you already pay for one of these, I build on what you have.</p></details>
+      <details><summary>Will an AI agent act without asking me?</summary><p>Only if you want it to. By default, anything that sends, pays or deletes waits for your approval, and every run is logged so you can see what it did.</p></details>
+      <details><summary>What if something breaks later?</summary><p>Bug fixes are free for 30 days after delivery. After that, small changes are charged at a fixed rate we agree on.</p></details>
+    </div>
+  </section>
+
+  <div class="contact" id="contact">
+    <div class="sec-head" style="margin:0">
+      <p class="eyebrow">Contact</p>
+      <h2>Tell me what's eating your time</h2>
+      <p>Send a message with what you'd like automated. I reply within a day.</p>
+    </div>
+    <div class="lines">
+      <div class="line"><span class="k">WhatsApp</span><span class="v" id="wa">+91 72918 12344</span><button class="copy" data-target="wa" type="button">Copy</button></div>
+      <div class="line"><span class="k">Email</span><span class="v" id="em">saranshgupta2112@gmail.com</span><button class="copy" data-target="em" type="button">Copy</button></div>
+    </div>
+    <div>
+      <p style="margin-bottom:8px">Not sure what to write? Copy this and fill it in:</p>
+      <div class="msg" id="tpl">Hi Saransh, I run a ______ business.
+Every week I spend about ___ hours on ______.
+Can you automate this? My budget is around ₹_____.</div>
+      <div style="margin-top:10px"><button class="copy" data-target="tpl" type="button">Copy message</button></div>
+    </div>
+  </div>
+
+  <footer>© 2026 Saransh Gupta · Faridabad, Haryana · Prices in INR</footer>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click', function(){
+    var el = document.getElementById(b.dataset.target), t = el.innerText, old = b.textContent;
+    function done(ok){ b.textContent = ok ? 'Copied' : 'Select & copy'; setTimeout(function(){ b.textContent = old; }, 1600); }
+    function sel(){ var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); done(false); }
+    try { navigator.clipboard.writeText(t).then(function(){ done(true); }, sel); } catch(e){ sel(); }
+  });
+});
+</script>
+
+</body>
+</html>
